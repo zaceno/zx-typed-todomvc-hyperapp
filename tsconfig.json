@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "lib": ["DOM", "ESNext"],
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "strict": true
+    },
+    "Include": ["./typings/*"]
+}
