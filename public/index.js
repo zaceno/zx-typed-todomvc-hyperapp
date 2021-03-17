@@ -465,6 +465,19 @@ const _onhashchange = (dispatch, options) => {
     return () => removeEventListener("hashchange", handler);
 };
 const onhashchange = (action) => [_onhashchange, { action }];
+const _lspersister = (_, options) => {
+    requestAnimationFrame(() => localStorage.setItem(options.key, JSON.stringify(options.watch)));
+    return () => { };
+};
+const lspersister = (key, watch) => [_lspersister, { key, watch }];
+const _lsloader = (dispatch, options) => {
+    let data = localStorage.getItem(options.key);
+    if (!data)
+        return;
+    let parsed = JSON.parse(data);
+    dispatch(options.action, parsed);
+};
+const lsloader = (key, action) => [_lsloader, { key, action }];
 
 const withTargetValue = action => (state, event) => {
     if (!event.target)
@@ -681,6 +694,10 @@ const filter = wire$2({
     get: (state) => state.filter,
     set: (state, filter) => ({ ...state, filter }),
 });
+const LoadListItems = (state, list) => ({
+    ...state,
+    list,
+});
 let node = document.getElementById("app");
 node &&
     app({
@@ -691,6 +708,7 @@ node &&
                 list: init$2(),
                 filter: init$3(),
             },
+            lsloader("list-items", LoadListItems),
             focuser(".newitementry input[type=text]"),
         ],
         view: state => main([
@@ -707,5 +725,8 @@ node &&
                 footer([view$2(filter.model(state))]),
             ]),
         ]),
-        subscriptions: state => [...subs(filter.model(state))],
+        subscriptions: state => [
+            lspersister("list-items", state.list),
+            ...subs(filter.model(state)),
+        ],
     });

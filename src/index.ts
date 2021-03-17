@@ -1,6 +1,6 @@
-import { app } from "hyperapp"
+import { app, Action } from "hyperapp"
 import { text, h1, header, footer, section, main } from "@hyperapp/html"
-import { focuser } from "./lib/io"
+import { focuser, lsloader, lspersister } from "./lib/io"
 import * as AddItem from "./add-item"
 import * as TodoList from "./todo-list"
 import * as Filters from "./filters"
@@ -27,6 +27,11 @@ const filter = Filters.wire({
     set: (state: State, filter) => ({ ...state, filter }),
 })
 
+const LoadListItems: Action<State, TodoList.State> = (state, list) => ({
+    ...state,
+    list,
+})
+
 let node = document.getElementById("app")
 node &&
     app({
@@ -37,6 +42,7 @@ node &&
                 list: TodoList.init(),
                 filter: Filters.init(),
             },
+            lsloader("list-items", LoadListItems),
             focuser(".newitementry input[type=text]"),
         ],
         view: state =>
@@ -57,5 +63,8 @@ node &&
                     footer([Filters.view(filter.model(state))]),
                 ]),
             ]),
-        subscriptions: state => [...Filters.subs(filter.model(state))],
+        subscriptions: state => [
+            lspersister("list-items", state.list),
+            ...Filters.subs(filter.model(state)),
+        ],
     })
