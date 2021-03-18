@@ -13,7 +13,7 @@ npm start
 # preview. Then start hacking away
 ```
 
-The implementation is the same as the one described in my [tutorial video series][https://zaceno.github.io/codealong-hyperapp], except everything is strictly typed using typescript (or should be).
+The implementation is the same as the one described in my [tutorial video series](https://zaceno.github.io/codealong-hyperapp), except everything is strictly typed using typescript (or should be).
 
 It's not perfect yet by any means. Please help me improve them! Install and experiment as above.
 
