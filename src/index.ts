@@ -1,3 +1,4 @@
+import "./style.css"
 import { app, Action } from "hyperapp"
 import { text, h1, header, footer, section, main } from "@hyperapp/html"
 import { focuser, lsloader, lspersister } from "./lib/io"
