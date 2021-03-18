@@ -27,5 +27,6 @@
     },
     "author": "Zacharias Enochsson",
     "private": true,
+    "license": "MIT",
     "type": "module"
 }
