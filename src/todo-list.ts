@@ -24,6 +24,8 @@ type Model<S> = State & {
     ClearComplete: Action<S, any>
 }
 
+type View<E = {}> = <S>(model: Model<S> & E) => any
+
 export const wire = <S>({ get, set }: WireProps<S>) => {
     const globalize = <X>(f: todos.Transform<X>) => (state: S, data: X) =>
         set(state, f(get(state), data))
@@ -43,10 +45,7 @@ export const wire = <S>({ get, set }: WireProps<S>) => {
     }
 }
 
-export const view = <S>({
-    filter,
-    ...model
-}: Model<S> & { filter: FilterState }) =>
+export const view: View<{ filter: FilterState }> = ({ filter, ...model }) =>
     list({
         items: model.items,
         propfn: (_, index) => ({
@@ -67,7 +66,7 @@ export const view = <S>({
             }),
     })
 
-export const checkAll = <S>(model: Model<S>) => {
+export const checkAll: View = model => {
     let allDone = todos.areAllDone(model)
     return input({
         type: "checkbox",
@@ -77,13 +76,12 @@ export const checkAll = <S>(model: Model<S>) => {
     })
 }
 
-export const hasItems = <S>(model: Model<S>) => todos.hasItems(model)
+export const hasItems: View = model => todos.hasItems(model)
 
-export const itemCount = <S>(model: Model<S>) =>
+export const itemCount: View = model =>
     p(text(todos.countActive(model) + " items left"))
 
-export const clearComplete = <S>(model: Model<S>) => {
-    console.log("NBR COMPLETE" + todos.countComplete(model))
+export const clearComplete: View = model => {
     return button(
         {
             style: {

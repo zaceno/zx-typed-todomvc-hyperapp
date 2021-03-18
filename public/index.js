@@ -643,7 +643,7 @@ const view$1 = ({ filter, ...model }) => list({
         ondelete: [model.Delete, index],
     }),
 });
-const checkAll = (model) => {
+const checkAll = model => {
     let allDone = areAllDone(model);
     return input({
         type: "checkbox",
@@ -652,10 +652,9 @@ const checkAll = (model) => {
         oninput: [model.SetAllDone, !allDone],
     });
 };
-const hasItems$1 = (model) => hasItems(model);
-const itemCount = (model) => p(text(countActive(model) + " items left"));
-const clearComplete$1 = (model) => {
-    console.log("NBR COMPLETE" + countComplete(model));
+const hasItems$1 = model => hasItems(model);
+const itemCount = model => p(text(countActive(model) + " items left"));
+const clearComplete$1 = model => {
     return button({
         style: {
             visibility: countComplete(model) ? "visible" : "hidden",
