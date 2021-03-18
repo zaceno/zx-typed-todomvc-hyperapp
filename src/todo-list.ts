@@ -1,5 +1,5 @@
 import { Action } from "hyperapp"
-import { input } from "@hyperapp/html"
+import { input, p, text, button } from "@hyperapp/html"
 import { list } from "./lib/view"
 import { todoItem } from "./todo-item"
 import * as todos from "./todo-logic"
@@ -21,6 +21,7 @@ type Model<S> = State & {
     StopEditing: Action<S, any>
     InputEditing: Action<S, string>
     SetAllDone: Action<S, boolean>
+    ClearComplete: Action<S, any>
 }
 
 export const wire = <S>({ get, set }: WireProps<S>) => {
@@ -36,6 +37,7 @@ export const wire = <S>({ get, set }: WireProps<S>) => {
             StopEditing: globalize(todos.stopEditing),
             InputEditing: globalize(todos.inputEditing),
             SetAllDone: globalize(todos.setAllDone),
+            ClearComplete: globalize(todos.clearComplete),
         }),
         addItem: globalize(todos.addItem),
     }
@@ -73,4 +75,22 @@ export const checkAll = <S>(model: Model<S>) => {
         checked: allDone,
         oninput: [model.SetAllDone, !allDone],
     })
+}
+
+export const hasItems = <S>(model: Model<S>) => todos.hasItems(model)
+
+export const itemCount = <S>(model: Model<S>) =>
+    p(text(todos.countActive(model) + " items left"))
+
+export const clearComplete = <S>(model: Model<S>) => {
+    console.log("NBR COMPLETE" + todos.countComplete(model))
+    return button(
+        {
+            style: {
+                visibility: todos.countComplete(model) ? "visible" : "hidden",
+            },
+            onclick: model.ClearComplete,
+        },
+        text("Clear Complete")
+    )
 }

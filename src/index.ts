@@ -60,7 +60,22 @@ node &&
                             filter: filter.getFilter(state),
                         })
                     ),
-                    footer([Filters.view(filter.model(state))]),
+                    footer(
+                        {
+                            style: {
+                                visibility: TodoList.hasItems(
+                                    todoList.model(state)
+                                )
+                                    ? "visible"
+                                    : "hidden",
+                            },
+                        },
+                        [
+                            TodoList.itemCount(todoList.model(state)),
+                            Filters.view(filter.model(state)),
+                            TodoList.clearComplete(todoList.model(state)),
+                        ]
+                    ),
                 ]),
             ]),
         subscriptions: state => [

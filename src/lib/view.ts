@@ -35,7 +35,15 @@ export const list = <T>(props: ListProps<T>) =>
 
 export type EditableProps = TextInputProps & { editing: boolean }
 
-export const editable = (
-    { editing, ...rest }: EditableProps,
+export const editable = <X>(
+    {
+        editing,
+        value,
+        oninput,
+        ...rest
+    }: EditableProps & ValidateCustomPayloads<X>,
     content: VirtualContent
-) => (editing ? textInput({ ...rest, onblur: rest.ondone }) : content)
+) =>
+    editing
+        ? textInput({ ...rest, value, oninput, onblur: rest.ondone })
+        : content

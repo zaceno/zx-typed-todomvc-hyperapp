@@ -53,6 +53,18 @@ export const addItem: Transform<string> = (state, itemText) => ({
 
 export const hasItems: Query<boolean> = state => !!state.items.length
 
+export const countActive: Query<number> = state =>
+    state.done.filter(done => !done).length
+
+export const countComplete: Query<number> = state =>
+    state.done.filter(done => done).length
+
+export const clearComplete: Transform<string> = state => {
+    let done = state.done.filter(done => !done)
+    let items = state.items.filter((_, index) => !state.done[index])
+    return { ...state, done, items }
+}
+
 export const areAllDone: Query<boolean> = state =>
     state.done.reduce((all, me) => all && me, true)
 

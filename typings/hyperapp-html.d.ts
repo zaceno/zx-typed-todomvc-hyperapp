@@ -18,6 +18,7 @@ declare module "@hyperapp/html" {
         first: ValidateCustomPayloads<X> & X & VirtualElementProps,
         second: VirtualContent
     ): VirtualElement
+
     export function b(): VirtualElement
     export function b<X>(
         first: VirtualElementProps & ValidateCustomPayloads<X>

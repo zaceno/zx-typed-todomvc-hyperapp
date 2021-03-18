@@ -427,6 +427,7 @@ const tag = (tag) => (
 ) => h(tag, props === children ? EMPTY_OBJ$1 : props, children);
 
 const a = tag("a");
+const p = tag("p");
 const h1 = tag("h1");
 const li = tag("li");
 const ul = tag("ul");
@@ -502,7 +503,9 @@ const textInput = (props) => input({
     onkeypress: props.ondone && withEnterKey(props.ondone),
 });
 const list = (props) => ul(props.items.map((x, i) => li(props.propfn(x, i), props.render(x, i))));
-const editable = ({ editing, ...rest }, content) => (editing ? textInput({ ...rest, onblur: rest.ondone }) : content);
+const editable = ({ editing, value, oninput, ...rest }, content) => editing
+    ? textInput({ ...rest, value, oninput, onblur: rest.ondone })
+    : content;
 
 const init = () => "";
 const wire = (params) => {
@@ -593,6 +596,13 @@ const addItem = (state, itemText) => ({
     done: [false, ...state.done],
 });
 const hasItems = state => !!state.items.length;
+const countActive = state => state.done.filter(done => !done).length;
+const countComplete = state => state.done.filter(done => done).length;
+const clearComplete = state => {
+    let done = state.done.filter(done => !done);
+    let items = state.items.filter((_, index) => !state.done[index]);
+    return { ...state, done, items };
+};
 const areAllDone = state => state.done.reduce((all, me) => all && me, true);
 const setAllDone = (state, value) => ({
     ...state,
@@ -611,6 +621,7 @@ const wire$1 = ({ get, set }) => {
             StopEditing: globalize(stopEditing),
             InputEditing: globalize(inputEditing),
             SetAllDone: globalize(setAllDone),
+            ClearComplete: globalize(clearComplete),
         }),
         addItem: globalize(addItem),
     };
@@ -640,6 +651,17 @@ const checkAll = (model) => {
         checked: allDone,
         oninput: [model.SetAllDone, !allDone],
     });
+};
+const hasItems$1 = (model) => hasItems(model);
+const itemCount = (model) => p(text(countActive(model) + " items left"));
+const clearComplete$1 = (model) => {
+    console.log("NBR COMPLETE" + countComplete(model));
+    return button({
+        style: {
+            visibility: countComplete(model) ? "visible" : "hidden",
+        },
+        onclick: model.ClearComplete,
+    }, text("Clear Complete"));
 };
 
 const init$3 = () => "all";
@@ -722,7 +744,17 @@ node &&
                     ...todoList.model(state),
                     filter: filter.getFilter(state),
                 })),
-                footer([view$2(filter.model(state))]),
+                footer({
+                    style: {
+                        visibility: hasItems$1(todoList.model(state))
+                            ? "visible"
+                            : "hidden",
+                    },
+                }, [
+                    itemCount(todoList.model(state)),
+                    view$2(filter.model(state)),
+                    clearComplete$1(todoList.model(state)),
+                ]),
             ]),
         ]),
         subscriptions: state => [
