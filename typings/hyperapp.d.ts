@@ -18,7 +18,7 @@ declare module "hyperapp" {
 
     type StyleProp = {
         [K in keyof CSSStyleDeclaration]?: CSSStyleDeclaration[K]
-    } & { [x: number]: never } //prevent arrays
+    }
 
     type EventHandlers = {
         [K in keyof HTMLElementEventMap as `on${K}`]:
@@ -59,7 +59,7 @@ declare module "hyperapp" {
 
     type VirtualContent = VirtualChild | VirtualChild[]
 
-    function h<S, X>(
+    function h<X>(
         tag: string,
         props: ValidateCustomPayloads<X> & VirtualElementProps,
         children?: VirtualContent
@@ -94,7 +94,9 @@ declare module "hyperapp" {
     // ensures that any values in a given type object, where the value is [Action, custom payload]
     // that the action can take the type of the custom payload
     type ValidateCustomPayloads<X> = {
-        [K in keyof X]: ValidateACustomPayload<X[K]>
+        [K in keyof X]: K extends "style"
+            ? StyleProp
+            : ValidateACustomPayload<X[K]>
     }
 
     // define a set of properties that could be passed on as virtual element properties

@@ -15,7 +15,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function a(first: VirtualContent): VirtualElement
     export function a<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
 
@@ -25,7 +25,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function b(first: VirtualContent): VirtualElement
     export function b<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function i(): VirtualElement
@@ -34,7 +34,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function i(first: VirtualContent): VirtualElement
     export function i<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function p(): VirtualElement
@@ -43,7 +43,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function p(first: VirtualContent): VirtualElement
     export function p<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function q(): VirtualElement
@@ -52,7 +52,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function q(first: VirtualContent): VirtualElement
     export function q<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function s(): VirtualElement
@@ -61,7 +61,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function s(first: VirtualContent): VirtualElement
     export function s<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function br(): VirtualElement
@@ -70,7 +70,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function br(first: VirtualContent): VirtualElement
     export function br<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function dd(): VirtualElement
@@ -79,7 +79,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function dd(first: VirtualContent): VirtualElement
     export function dd<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function dl(): VirtualElement
@@ -88,7 +88,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function dl(first: VirtualContent): VirtualElement
     export function dl<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function dt(): VirtualElement
@@ -97,7 +97,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function dt(first: VirtualContent): VirtualElement
     export function dt<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function em(): VirtualElement
@@ -106,7 +106,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function em(first: VirtualContent): VirtualElement
     export function em<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function h1(): VirtualElement
@@ -115,7 +115,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function h1(first: VirtualContent): VirtualElement
     export function h1<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function h2(): VirtualElement
@@ -124,7 +124,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function h2(first: VirtualContent): VirtualElement
     export function h2<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function h3(): VirtualElement
@@ -133,7 +133,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function h3(first: VirtualContent): VirtualElement
     export function h3<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function h4(): VirtualElement
@@ -142,7 +142,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function h4(first: VirtualContent): VirtualElement
     export function h4<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function h5(): VirtualElement
@@ -151,7 +151,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function h5(first: VirtualContent): VirtualElement
     export function h5<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function h6(): VirtualElement
@@ -160,7 +160,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function h6(first: VirtualContent): VirtualElement
     export function h6<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function hr(): VirtualElement
@@ -169,7 +169,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function hr(first: VirtualContent): VirtualElement
     export function hr<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function li(): VirtualElement
@@ -178,7 +178,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function li(first: VirtualContent): VirtualElement
     export function li<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function ol(): VirtualElement
@@ -187,7 +187,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function ol(first: VirtualContent): VirtualElement
     export function ol<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function rp(): VirtualElement
@@ -196,7 +196,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function rp(first: VirtualContent): VirtualElement
     export function rp<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function rt(): VirtualElement
@@ -205,7 +205,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function rt(first: VirtualContent): VirtualElement
     export function rt<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function td(): VirtualElement
@@ -214,7 +214,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function td(first: VirtualContent): VirtualElement
     export function td<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function th(): VirtualElement
@@ -223,7 +223,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function th(first: VirtualContent): VirtualElement
     export function th<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function tr(): VirtualElement
@@ -232,7 +232,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function tr(first: VirtualContent): VirtualElement
     export function tr<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function ul(): VirtualElement
@@ -241,7 +241,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function ul(first: VirtualContent): VirtualElement
     export function ul<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function bdi(): VirtualElement
@@ -250,7 +250,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function bdi(first: VirtualContent): VirtualElement
     export function bdi<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function bdo(): VirtualElement
@@ -259,7 +259,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function bdo(first: VirtualContent): VirtualElement
     export function bdo<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function col(): VirtualElement
@@ -268,7 +268,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function col(first: VirtualContent): VirtualElement
     export function col<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function del(): VirtualElement
@@ -277,7 +277,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function del(first: VirtualContent): VirtualElement
     export function del<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function dfn(): VirtualElement
@@ -286,7 +286,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function dfn(first: VirtualContent): VirtualElement
     export function dfn<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function div(): VirtualElement
@@ -295,7 +295,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function div(first: VirtualContent): VirtualElement
     export function div<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function img(): VirtualElement
@@ -304,7 +304,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function img(first: VirtualContent): VirtualElement
     export function img<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function ins(): VirtualElement
@@ -313,7 +313,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function ins(first: VirtualContent): VirtualElement
     export function ins<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function kbd(): VirtualElement
@@ -322,7 +322,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function kbd(first: VirtualContent): VirtualElement
     export function kbd<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function map(): VirtualElement
@@ -331,7 +331,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function map(first: VirtualContent): VirtualElement
     export function map<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function nav(): VirtualElement
@@ -340,7 +340,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function nav(first: VirtualContent): VirtualElement
     export function nav<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function pre(): VirtualElement
@@ -349,7 +349,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function pre(first: VirtualContent): VirtualElement
     export function pre<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function rtc(): VirtualElement
@@ -358,7 +358,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function rtc(first: VirtualContent): VirtualElement
     export function rtc<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function sub(): VirtualElement
@@ -367,7 +367,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function sub(first: VirtualContent): VirtualElement
     export function sub<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function sup(): VirtualElement
@@ -376,7 +376,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function sup(first: VirtualContent): VirtualElement
     export function sup<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function wbr(): VirtualElement
@@ -385,7 +385,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function wbr(first: VirtualContent): VirtualElement
     export function wbr<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function abbr(): VirtualElement
@@ -394,7 +394,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function abbr(first: VirtualContent): VirtualElement
     export function abbr<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function area(): VirtualElement
@@ -403,7 +403,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function area(first: VirtualContent): VirtualElement
     export function area<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function cite(): VirtualElement
@@ -412,7 +412,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function cite(first: VirtualContent): VirtualElement
     export function cite<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function code(): VirtualElement
@@ -421,7 +421,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function code(first: VirtualContent): VirtualElement
     export function code<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function data(): VirtualElement
@@ -430,7 +430,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function data(first: VirtualContent): VirtualElement
     export function data<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function form(): VirtualElement
@@ -439,7 +439,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function form(first: VirtualContent): VirtualElement
     export function form<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function main(): VirtualElement
@@ -448,7 +448,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function main(first: VirtualContent): VirtualElement
     export function main<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function mark(): VirtualElement
@@ -457,7 +457,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function mark(first: VirtualContent): VirtualElement
     export function mark<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function ruby(): VirtualElement
@@ -466,7 +466,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function ruby(first: VirtualContent): VirtualElement
     export function ruby<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function samp(): VirtualElement
@@ -475,7 +475,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function samp(first: VirtualContent): VirtualElement
     export function samp<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function span(): VirtualElement
@@ -484,7 +484,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function span(first: VirtualContent): VirtualElement
     export function span<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function time(): VirtualElement
@@ -493,7 +493,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function time(first: VirtualContent): VirtualElement
     export function time<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function aside(): VirtualElement
@@ -502,7 +502,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function aside(first: VirtualContent): VirtualElement
     export function aside<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function audio(): VirtualElement
@@ -511,7 +511,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function audio(first: VirtualContent): VirtualElement
     export function audio<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function input(): VirtualElement
@@ -520,7 +520,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function input(first: VirtualContent): VirtualElement
     export function input<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function label(): VirtualElement
@@ -529,7 +529,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function label(first: VirtualContent): VirtualElement
     export function label<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function meter(): VirtualElement
@@ -538,7 +538,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function meter(first: VirtualContent): VirtualElement
     export function meter<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function param(): VirtualElement
@@ -547,7 +547,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function param(first: VirtualContent): VirtualElement
     export function param<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function small(): VirtualElement
@@ -556,7 +556,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function small(first: VirtualContent): VirtualElement
     export function small<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function table(): VirtualElement
@@ -565,7 +565,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function table(first: VirtualContent): VirtualElement
     export function table<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function tbody(): VirtualElement
@@ -574,7 +574,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function tbody(first: VirtualContent): VirtualElement
     export function tbody<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function tfoot(): VirtualElement
@@ -583,7 +583,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function tfoot(first: VirtualContent): VirtualElement
     export function tfoot<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function thead(): VirtualElement
@@ -592,7 +592,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function thead(first: VirtualContent): VirtualElement
     export function thead<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function track(): VirtualElement
@@ -601,7 +601,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function track(first: VirtualContent): VirtualElement
     export function track<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function video(): VirtualElement
@@ -610,7 +610,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function video(first: VirtualContent): VirtualElement
     export function video<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function button(): VirtualElement
@@ -619,7 +619,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function button(first: VirtualContent): VirtualElement
     export function button<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function canvas(): VirtualElement
@@ -628,7 +628,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function canvas(first: VirtualContent): VirtualElement
     export function canvas<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function dialog(): VirtualElement
@@ -637,7 +637,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function dialog(first: VirtualContent): VirtualElement
     export function dialog<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function figure(): VirtualElement
@@ -646,7 +646,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function figure(first: VirtualContent): VirtualElement
     export function figure<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function footer(): VirtualElement
@@ -655,7 +655,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function footer(first: VirtualContent): VirtualElement
     export function footer<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function header(): VirtualElement
@@ -664,7 +664,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function header(first: VirtualContent): VirtualElement
     export function header<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function iframe(): VirtualElement
@@ -673,7 +673,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function iframe(first: VirtualContent): VirtualElement
     export function iframe<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function legend(): VirtualElement
@@ -682,7 +682,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function legend(first: VirtualContent): VirtualElement
     export function legend<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function object(): VirtualElement
@@ -691,7 +691,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function object(first: VirtualContent): VirtualElement
     export function object<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function option(): VirtualElement
@@ -700,7 +700,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function option(first: VirtualContent): VirtualElement
     export function option<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function output(): VirtualElement
@@ -709,7 +709,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function output(first: VirtualContent): VirtualElement
     export function output<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function select(): VirtualElement
@@ -718,7 +718,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function select(first: VirtualContent): VirtualElement
     export function select<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function source(): VirtualElement
@@ -727,7 +727,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function source(first: VirtualContent): VirtualElement
     export function source<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function strong(): VirtualElement
@@ -736,7 +736,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function strong(first: VirtualContent): VirtualElement
     export function strong<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function address(): VirtualElement
@@ -745,7 +745,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function address(first: VirtualContent): VirtualElement
     export function address<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function article(): VirtualElement
@@ -754,7 +754,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function article(first: VirtualContent): VirtualElement
     export function article<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function caption(): VirtualElement
@@ -763,7 +763,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function caption(first: VirtualContent): VirtualElement
     export function caption<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function details(): VirtualElement
@@ -772,7 +772,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function details(first: VirtualContent): VirtualElement
     export function details<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function section(): VirtualElement
@@ -781,7 +781,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function section(first: VirtualContent): VirtualElement
     export function section<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function summary(): VirtualElement
@@ -790,7 +790,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function summary(first: VirtualContent): VirtualElement
     export function summary<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function picture(): VirtualElement
@@ -799,7 +799,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function picture(first: VirtualContent): VirtualElement
     export function picture<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function colgroup(): VirtualElement
@@ -808,7 +808,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function colgroup(first: VirtualContent): VirtualElement
     export function colgroup<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function datalist(): VirtualElement
@@ -817,7 +817,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function datalist(first: VirtualContent): VirtualElement
     export function datalist<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function fieldset(): VirtualElement
@@ -826,7 +826,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function fieldset(first: VirtualContent): VirtualElement
     export function fieldset<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function menuitem(): VirtualElement
@@ -835,7 +835,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function menuitem(first: VirtualContent): VirtualElement
     export function menuitem<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function optgroup(): VirtualElement
@@ -844,7 +844,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function optgroup(first: VirtualContent): VirtualElement
     export function optgroup<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function progress(): VirtualElement
@@ -853,7 +853,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function progress(first: VirtualContent): VirtualElement
     export function progress<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function textarea(): VirtualElement
@@ -862,7 +862,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function textarea(first: VirtualContent): VirtualElement
     export function textarea<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function blockquote(): VirtualElement
@@ -871,7 +871,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function blockquote(first: VirtualContent): VirtualElement
     export function blockquote<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
     export function figcaption(): VirtualElement
@@ -880,7 +880,7 @@ declare module "@hyperapp/html" {
     ): VirtualElement
     export function figcaption(first: VirtualContent): VirtualElement
     export function figcaption<X>(
-        first: ValidateCustomPayloads<X> & X & VirtualElementProps,
+        first: VirtualElementProps & ValidateCustomPayloads<X>,
         second: VirtualContent
     ): VirtualElement
 }
