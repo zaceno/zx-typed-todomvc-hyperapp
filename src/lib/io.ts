@@ -1,38 +1,40 @@
 import {
     Action,
-    Dispatch,
     Effect,
-    EffectRunner,
-    SubscriptionController,
+    Dispatch,
     Subscription,
+    Unsubscribe,
 } from "hyperapp"
 
-type FocuserOptions = { selector: string }
+export type ActionWithPayload<S, X=any> = [Action<S, X>, X]
 
-const _focuser: EffectRunner<FocuserOptions> = (_, options) => {
+const _focuser = (_:any, selector: string) => {
     requestAnimationFrame(() => {
-        let elem = document.querySelector(options.selector)
+        let elem = document.querySelector(selector)
         if (elem === null || !("focus" in elem)) return
         ;(elem as HTMLElement).focus()
     })
 }
-export const focuser = (selector: string): Effect<FocuserOptions> => [
+export const focuser = (selector: string):Effect<any, string> => [
     _focuser,
-    { selector },
+    selector,
 ]
 
-type DispatcherOpts = {
-    action: Action<any, any> | readonly [Action<any, any>, any]
+
+type DispatcherOpts<S> = {
+    action: ActionWithPayload<S> | Action<S>
     payload?: any
 }
 
-const _dispatcher: EffectRunner<DispatcherOpts> = (dispatch, opts) =>
+const _dispatcher = <S>(dispatch:Dispatch<S>, opts: DispatcherOpts<S>) =>
     dispatch(opts.action, opts.payload)
 
-export const dispatcher = (
-    action: DispatcherOpts["action"],
-    payload?: DispatcherOpts["payload"]
-): Effect<DispatcherOpts> => [
+export type ValidReaction<S,A, X> = A extends ActionWithPayload<S, infer Y> ? ActionWithPayload<S,Y> : Action<S,X>
+
+export const dispatcher = <S, A, X>(
+    action: A & ValidReaction<S, A, X> ,
+    payload?: X
+): Effect<S, DispatcherOpts<S>> => [
     _dispatcher,
     {
         action,
@@ -40,12 +42,9 @@ export const dispatcher = (
     },
 ]
 
-type OnHashChangeOptions<S = any> = { action: Action<S, string> }
+type OnHashChangeOptions<S> = { action: Action<S, string> }
 
-const _onhashchange: SubscriptionController<OnHashChangeOptions> = (
-    dispatch,
-    options
-) => {
+const _onhashchange = <S>(dispatch:Dispatch<S>, options:OnHashChangeOptions<S>):Unsubscribe => {
     const handler = () => dispatch(options.action, window.location.hash)
     requestAnimationFrame(handler)
     addEventListener("hashchange", handler)
@@ -54,34 +53,34 @@ const _onhashchange: SubscriptionController<OnHashChangeOptions> = (
 
 export const onhashchange = <S>(
     action: Action<S, string>
-): Subscription<OnHashChangeOptions<S>> => [_onhashchange, { action }]
+): Subscription<S, OnHashChangeOptions<S>> => [_onhashchange, { action }]
 
 type LSPersisterOptions = {
     key: string
     watch: any
 }
-const _lspersister: SubscriptionController<LSPersisterOptions> = (
-    _,
-    options
-) => {
+const _lspersister = (
+    _:any,
+    options: LSPersisterOptions
+):Unsubscribe => {
     requestAnimationFrame(() =>
         localStorage.setItem(options.key, JSON.stringify(options.watch))
     )
     return () => {}
 }
 
-export const lspersister = (
+export const lspersister = <S>(
     key: string,
     watch: any
-): Subscription<LSPersisterOptions> => [_lspersister, { key, watch }]
+): Subscription<S, LSPersisterOptions> => [_lspersister, { key, watch }]
 
 type LSLoaderOptions<S = any, X = any> = {
     key: string
     action: Action<S, X>
 }
 
-const _lsloader: EffectRunner<LSLoaderOptions> = <S, X>(
-    dispatch: Dispatch,
+const _lsloader = <S, X>(
+    dispatch: Dispatch<S>,
     options: LSLoaderOptions<S, X>
 ) => {
     let data = localStorage.getItem(options.key)
@@ -93,4 +92,6 @@ const _lsloader: EffectRunner<LSLoaderOptions> = <S, X>(
 export const lsloader = <S, X>(
     key: string,
     action: Action<S, X>
-): Effect<LSLoaderOptions<S, X>> => [_lsloader, { key, action }]
+): Effect<S, LSLoaderOptions<S, X>> => [_lsloader, { key, action }]
+
+

@@ -1,5 +1,5 @@
-import { Action } from "hyperapp"
-import { text, ul, li, a } from "@hyperapp/html"
+import { Action , VDOM } from "hyperapp"
+import { text, ul, li, a } from "./lib/html"
 import { onhashchange } from "./lib/io"
 
 export type State = "all" | "complete" | "active"
@@ -34,7 +34,7 @@ export const wire = <S>({ get, set }: WireProps<S>) => {
     }
 }
 
-export const view = <S>(model: Model<S>) =>
+export const view = <S>(model: Model<S>):VDOM<S> =>
     ul({ class: "filters" }, [
         li(
             a(

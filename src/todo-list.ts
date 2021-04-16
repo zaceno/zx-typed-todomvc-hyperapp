@@ -1,9 +1,10 @@
 import { Action } from "hyperapp"
-import { input, p, text, button } from "@hyperapp/html"
+import { input, p, text, button } from "./lib/html"
 import { list } from "./lib/view"
 import { todoItem } from "./todo-item"
 import * as todos from "./todo-logic"
 import { State as FilterState } from "./filters"
+import {VDOM} from 'hyperapp'
 
 export type State = todos.State
 
@@ -24,7 +25,6 @@ type Model<S> = State & {
     ClearComplete: Action<S, any>
 }
 
-type View<E = {}> = <S>(model: Model<S> & E) => any
 
 export const wire = <S>({ get, set }: WireProps<S>) => {
     const globalize = <X>(f: todos.Transform<X>) => (state: S, data: X) =>
@@ -45,7 +45,7 @@ export const wire = <S>({ get, set }: WireProps<S>) => {
     }
 }
 
-export const view: View<{ filter: FilterState }> = ({ filter, ...model }) =>
+export const view = <S>({ filter, ...model}:{filter: FilterState}&Model<S>) =>
     list({
         items: model.items,
         propfn: (_, index) => ({
@@ -66,7 +66,7 @@ export const view: View<{ filter: FilterState }> = ({ filter, ...model }) =>
             }),
     })
 
-export const checkAll: View = model => {
+export const checkAll = <S>(model:Model<S>) => {
     let allDone = todos.areAllDone(model)
     return input({
         type: "checkbox",
@@ -76,12 +76,12 @@ export const checkAll: View = model => {
     })
 }
 
-export const hasItems: View = model => todos.hasItems(model)
+export const hasItems = <S>(model:Model<S>) => todos.hasItems(model)
 
-export const itemCount: View = model =>
+export const itemCount = <S>(model:Model<S>):VDOM<S> =>
     p(text(todos.countActive(model) + " items left"))
 
-export const clearComplete: View = model => {
+export const clearComplete = <S>(model:Model<S>) => {
     return button(
         {
             style: {

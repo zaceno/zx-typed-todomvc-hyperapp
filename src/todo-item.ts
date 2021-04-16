@@ -1,43 +1,37 @@
 import { EditableProps, editable } from "./lib/view"
-import { EventHandlers, ValidateCustomPayloads } from "hyperapp"
-import { input, span, button, text } from "@hyperapp/html"
+import { EventActions, ValidateCustomPayloads } from "hyperapp"
+import { input, span, button, text } from "./lib/html"
 import { withFocuser } from "./lib/decorators"
 
-export type TodoItemProps = {
+export type TodoItemProps<S> = {
     checked: boolean
     text: string
-    editing: EditableProps["editing"]
-    oninput: EditableProps["oninput"]
-    ondone: EditableProps["ondone"]
-    ontoggle: EventHandlers["oninput"]
-    onedit: EventHandlers["onclick"]
-    ondelete: EventHandlers["onclick"]
-}
+    ontoggle: Exclude<EventActions<S>['oninput'], undefined>,
+    onedit: Exclude<EventActions<S>['onclick'], undefined>,
+    ondelete: Exclude<EventActions<S>['onclick'], undefined>,    
+} & Omit<EditableProps<S>, 'value'>
 
-export const todoItem = <X>(props: ValidateCustomPayloads<X> & TodoItemProps) =>
-    editable(
-        {
-            id: "todo-item-input",
-            editing: props.editing,
-            value: props.text,
-            oninput: props.oninput,
-            ondone: props.ondone,
-        },
-        [
-            input({
-                type: "checkbox",
-                checked: props.checked,
-                oninput: props.ontoggle,
-            }),
-            span(
-                {
-                    onclick: withFocuser(props.onedit, "#todo-item-input"),
-                    class: {
-                        done: props.checked,
-                    },
-                },
-                text(props.text)
-            ),
-            button({ onclick: props.ondelete }, text("X")),
-        ]
-    )
+export const todoItem = <S, P>(props: ValidateCustomPayloads<S,P> & TodoItemProps<S>) => editable(
+    {
+        id: "todo-item-input",
+        editing: props.editing,
+        value: props.text,
+        oninput: props.oninput,
+        ondone: props.ondone,
+    },
+    [
+        input({
+            type: "checkbox",
+            checked: props.checked,
+            oninput: props.ontoggle,
+        }),
+
+        span({
+            onclick: withFocuser(props.onedit, "#todo-item-input"),
+            class: {
+                done: props.checked,
+            },
+        }, text<S>(props.text)),
+        button({ onclick: props.ondelete }, text("X")),
+    ]
+)

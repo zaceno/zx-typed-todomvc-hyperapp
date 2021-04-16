@@ -2,6 +2,7 @@ import { liveServer } from "rollup-plugin-live-server"
 import typescript from "rollup-plugin-typescript2"
 import { terser } from "rollup-plugin-terser"
 import del from "rollup-plugin-delete"
+import resolve from "@rollup/plugin-node-resolve"
 import {
     default as html,
     makeHtmlAttributes as attrs,
@@ -40,6 +41,7 @@ export default {
     plugins: [
         PROD && del({ targets: "dist/*" }), //cleanup dist folder
         typescript({ typescript: require("typescript") }),
+        resolve(),
         postcss(),
         PROD && terser(),
         html({

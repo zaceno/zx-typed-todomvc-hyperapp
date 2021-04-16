@@ -1,6 +1,6 @@
 import { Action } from "hyperapp"
-import { textInput, TextInputProps } from "./lib/view"
-import { button, text } from "@hyperapp/html"
+import { textInput } from "./lib/view"
+import { button, text } from "./lib/html"
 
 export type State = string
 

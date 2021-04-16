@@ -1,5 +1,5 @@
 import { Action } from "hyperapp"
-import { focuser, dispatcher } from "./io"
+import { focuser, dispatcher , ActionWithPayload} from "./io"
 
 //Utility type for defining action decorators
 type ActionDecorator<P, Q = P> = <S>(action: Action<S, P>) => Action<S, Q>
@@ -19,10 +19,10 @@ export const withEnterKey: ActionDecorator<KeyboardEvent> = action => (
     event
 ) => (event.key === "Enter" ? [action, event] : state)
 
-export const withFocuser = <S, P>(
-    action: Action<S, P> | readonly [Action<S, any>, any],
+export const withFocuser = <S>(
+    action: Action<S, any> | ActionWithPayload<S , any>,
     selector: string
-): Action<S, P> => (state, payload) => [
+): Action<S> => (state, payload) => [
     state,
     dispatcher(action, payload),
     focuser(selector),
