@@ -1,10 +1,9 @@
-import { Action } from "hyperapp"
+import { Action , VNode} from "hyperapp"
 import { input, p, text, button } from "./lib/html"
 import { list } from "./lib/view"
 import { todoItem } from "./todo-item"
 import * as todos from "./todo-logic"
 import { State as FilterState } from "./filters"
-import {VDOM} from 'hyperapp'
 
 export type State = todos.State
 
@@ -78,7 +77,7 @@ export const checkAll = <S>(model:Model<S>) => {
 
 export const hasItems = <S>(model:Model<S>) => todos.hasItems(model)
 
-export const itemCount = <S>(model:Model<S>):VDOM<S> =>
+export const itemCount = <S>(model:Model<S>):VNode<S> =>
     p(text(todos.countActive(model) + " items left"))
 
 export const clearComplete = <S>(model:Model<S>) => {

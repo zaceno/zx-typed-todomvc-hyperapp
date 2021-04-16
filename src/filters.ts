@@ -1,4 +1,4 @@
-import { Action , VDOM } from "hyperapp"
+import { Action , VNode } from "hyperapp"
 import { text, ul, li, a } from "./lib/html"
 import { onhashchange } from "./lib/io"
 
@@ -34,7 +34,7 @@ export const wire = <S>({ get, set }: WireProps<S>) => {
     }
 }
 
-export const view = <S>(model: Model<S>):VDOM<S> =>
+export const view = <S>(model: Model<S>):VNode<S> =>
     ul({ class: "filters" }, [
         li(
             a(

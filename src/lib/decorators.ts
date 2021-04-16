@@ -1,5 +1,5 @@
 import { Action } from "hyperapp"
-import { focuser, dispatcher , ActionWithPayload} from "./io"
+import { focuser, dispatcher, ActionWithPayload} from "./io"
 
 //Utility type for defining action decorators
 type ActionDecorator<P, Q = P> = <S>(action: Action<S, P>) => Action<S, Q>

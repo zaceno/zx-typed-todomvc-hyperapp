@@ -6,15 +6,16 @@ import {
     Unsubscribe,
 } from "hyperapp"
 
-export type ActionWithPayload<S, X=any> = [Action<S, X>, X]
+export type ActionWithPayload<S, X=any> = readonly [Action<S, X>, X]
 
-const _focuser = (_:any, selector: string) => {
+const _focuser = (_: any, selector: string) => {
     requestAnimationFrame(() => {
         let elem = document.querySelector(selector)
         if (elem === null || !("focus" in elem)) return
         ;(elem as HTMLElement).focus()
     })
 }
+
 export const focuser = (selector: string):Effect<any, string> => [
     _focuser,
     selector,
@@ -44,7 +45,7 @@ export const dispatcher = <S, A, X>(
 
 type OnHashChangeOptions<S> = { action: Action<S, string> }
 
-const _onhashchange = <S>(dispatch:Dispatch<S>, options:OnHashChangeOptions<S>) => {
+const _onhashchange = <S>(dispatch:Dispatch<S>, options:OnHashChangeOptions<S>):Unsubscribe => {
     const handler = () => dispatch(options.action, window.location.hash)
     requestAnimationFrame(handler)
     addEventListener("hashchange", handler)
@@ -62,7 +63,7 @@ type LSPersisterOptions = {
 const _lspersister = (
     _:any,
     options: LSPersisterOptions
-) => {
+):Unsubscribe => {
     requestAnimationFrame(() =>
         localStorage.setItem(options.key, JSON.stringify(options.watch))
     )

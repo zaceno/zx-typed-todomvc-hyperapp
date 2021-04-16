@@ -1,5 +1,5 @@
 import { EditableProps, editable } from "./lib/view"
-import { EventActions, ValidateCustomPayloads } from "hyperapp"
+import { EventActions, CustomPayloads } from "hyperapp"
 import { input, span, button, text } from "./lib/html"
 import { withFocuser } from "./lib/decorators"
 
@@ -11,7 +11,7 @@ export type TodoItemProps<S> = {
     ondelete: Required<EventActions<S>>['onclick'],    
 } & Omit<EditableProps<S>, 'value'>
 
-export const todoItem = <S, P>(props: ValidateCustomPayloads<S,P> & TodoItemProps<S>) => editable<S>(
+export const todoItem = <S, P>(props: CustomPayloads<S,P> & TodoItemProps<S>) => editable(
     {
         id: "todo-item-input",
         editing: props.editing,
@@ -31,7 +31,7 @@ export const todoItem = <S, P>(props: ValidateCustomPayloads<S,P> & TodoItemProp
             class: {
                 done: props.checked,
             },
-        }, text(props.text)),
+        }, text<S>(props.text)),
         button({ onclick: props.ondelete }, text("X")),
     ]
 )
