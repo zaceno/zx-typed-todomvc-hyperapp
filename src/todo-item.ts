@@ -6,12 +6,12 @@ import { withFocuser } from "./lib/decorators"
 export type TodoItemProps<S> = {
     checked: boolean
     text: string
-    ontoggle: Exclude<EventActions<S>['oninput'], undefined>,
-    onedit: Exclude<EventActions<S>['onclick'], undefined>,
-    ondelete: Exclude<EventActions<S>['onclick'], undefined>,    
+    ontoggle: Required<EventActions<S>>['oninput'],
+    onedit: Required<EventActions<S>>['onclick'],
+    ondelete: Required<EventActions<S>>['onclick'],    
 } & Omit<EditableProps<S>, 'value'>
 
-export const todoItem = <S, P>(props: ValidateCustomPayloads<S,P> & TodoItemProps<S>) => editable(
+export const todoItem = <S, P>(props: ValidateCustomPayloads<S,P> & TodoItemProps<S>) => editable<S>(
     {
         id: "todo-item-input",
         editing: props.editing,
@@ -31,7 +31,7 @@ export const todoItem = <S, P>(props: ValidateCustomPayloads<S,P> & TodoItemProp
             class: {
                 done: props.checked,
             },
-        }, text<S>(props.text)),
+        }, text(props.text)),
         button({ onclick: props.ondelete }, text("X")),
     ]
 )

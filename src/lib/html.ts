@@ -1,6 +1,6 @@
 //replaces @hyperapp/html
 
-import { h, text as _text, PropList, MaybeVDOM , ValidateCustomPayloads} from "hyperapp"
+import { h, text, PropList, MaybeVDOM , ValidateCustomPayloads, VDOM} from "hyperapp"
 
 type Content<S> = MaybeVDOM<S> | MaybeVDOM<S>[]
 
@@ -12,16 +12,14 @@ const isProps = <S>(props: PropList<S> | Content<S>): props is PropList<S> => {
   return true
 } 
 
-const tag = (tag: string) => <S, C>(
+const tag = (tag: string) => <S, C=unknown>(
   props?:   (ValidateCustomPayloads<S, C> & PropList<S>) | Content<S>,
   children?: undefined | Content<S>,
-) => {
+):VDOM<S> => {
   if (isProps<S>(props)) return h(tag, props, children)
   return h(tag, {}, props)
 }
-
-export {text} from 'hyperapp'
-
+export {text} from 'hyperapp' 
 export const a = tag("a")
 export const b = tag("b")
 export const i = tag("i")

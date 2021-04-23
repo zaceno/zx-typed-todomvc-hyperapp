@@ -44,7 +44,7 @@ export const dispatcher = <S, A, X>(
 
 type OnHashChangeOptions<S> = { action: Action<S, string> }
 
-const _onhashchange = <S>(dispatch:Dispatch<S>, options:OnHashChangeOptions<S>):Unsubscribe => {
+const _onhashchange = <S>(dispatch:Dispatch<S>, options:OnHashChangeOptions<S>) => {
     const handler = () => dispatch(options.action, window.location.hash)
     requestAnimationFrame(handler)
     addEventListener("hashchange", handler)
@@ -62,7 +62,7 @@ type LSPersisterOptions = {
 const _lspersister = (
     _:any,
     options: LSPersisterOptions
-):Unsubscribe => {
+) => {
     requestAnimationFrame(() =>
         localStorage.setItem(options.key, JSON.stringify(options.watch))
     )

@@ -1,6 +1,6 @@
 import "./style.css"
-import { app, Action} from "hyperapp"
-import { text, h1, header, footer, section, main } from "./lib/html"
+import { h, text, app, Action, VDOM} from "hyperapp"
+import { h1, header, footer, section, main } from "./lib/html"
 import { focuser, lsloader, lspersister } from "./lib/io"
 import * as AddItem from "./add-item"
 import * as TodoList from "./todo-list"
@@ -32,6 +32,7 @@ const LoadListItems: Action<State, TodoList.State> = (state, list) => ({
     ...state,
     list,
 })
+
 app({
     node: document.getElementById("app") as Node,
     init: [
@@ -43,8 +44,8 @@ app({
         lsloader("list-items", LoadListItems),
         focuser(".newitementry input[type=text]"),
     ],
-    view: state => main([
-        header(h1(text<State>("Todo App"))),
+    view: (state) => main<State>([
+        header(h1(text("Todo App"))),
         main([
             section({ class: "newitementry" }, [
                 TodoList.checkAll(todoList.model(state)),

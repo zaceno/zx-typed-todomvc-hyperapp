@@ -36,7 +36,7 @@ export const list = <S, T>(props: ListProps<S, T>) =>
 
 export type EditableProps<S> = TextInputProps<S> & { editing: boolean }
 
-export const editable = <S, X>(
+export const editable = <S, X=unknown>(
     {
         editing,
         value,
