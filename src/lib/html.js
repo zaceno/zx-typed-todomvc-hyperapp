@@ -1,27 +1,26 @@
-//replaces @hyperapp/html
+import { h } from "hyperapp"
 
-import { h, VNode, Props, MaybeVNode , CustomPayloads} from "hyperapp"
+/** @template S @typedef {import('hyperapp').VNode<S>} VNode */
+/** @template S @typedef {import('hyperapp').MaybeVNode<S>} MaybeVNode */
+/** @template S @typedef {import('hyperapp').ElementVNode<S>} ElementVNode */
+/** @template S @typedef {MaybeVNode<S> | MaybeVNode<S>[]} Content */
+/** @template S @typedef {import('hyperapp').Props<S>} Props */
+/** @template S,X @typedef {import('hyperapp').CustomPayloads<S,X>} CustomPayloads */
 
-type Content<S> = MaybeVNode<S> | MaybeVNode<S>[]
-
-const isProps = <S>(props: Props<S> | Content<S>): props is Props<S> => {
-  if (!props) return false
+/** @type {<S>(props: (Props<S> | Content<S>)) => props is Props<S>} */
+const isProps = props => {
+  if (!props || props === true) return false
   if (Array.isArray(props)) return false
-  if (props === true) return false
-  if ('tag' in props) return false
+  if ("tag" in props && "props" in props && "children" in props) return false
   return true
-} 
-
-const tag = (tag: string) => <S, C=unknown>(
-  props?:   (CustomPayloads<S, C> & Props<S>) | Content<S>,
-  children?: undefined | Content<S>,
-):VNode<S> => {
-  if (isProps<S>(props)) return h(tag, props, children)
-  return h(tag, {}, props)
 }
 
-export {text} from 'hyperapp' 
-
+/** @type {(tag:string) => <S,X>(props?: ((CustomPayloads<S,X> & Props<S>) | Content<S>), content?: Content<S> )=> ElementVNode<S>} */
+const tag = tagName => (props, children) => {
+  if (!props) return h(tagName, {}, [])
+  if (isProps(props)) return h(tagName, props, children || [])
+  return h(tagName, {}, props || [])
+}
 export const a = tag("a")
 export const b = tag("b")
 export const i = tag("i")
@@ -119,4 +118,9 @@ export const progress = tag("progress")
 export const textarea = tag("textarea")
 export const blockquote = tag("blockquote")
 export const figcaption = tag("figcaption")
+export const svg = tag("svg")
+export const path = tag("path")
+export const circle = tag("circle")
+export const rect = tag("rect")
 
+export { text } from "hyperapp"

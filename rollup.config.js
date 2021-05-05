@@ -1,5 +1,4 @@
 import { liveServer } from "rollup-plugin-live-server"
-import typescript from "rollup-plugin-typescript2"
 import { terser } from "rollup-plugin-terser"
 import del from "rollup-plugin-delete"
 import resolve from "@rollup/plugin-node-resolve"
@@ -30,7 +29,7 @@ const htmlTemplate = production => vars => `<!doctype html>
 </html>`
 
 export default {
-    input: "src/index.ts",
+    input: "src/index.js",
     output: [
         {
             dir: "dist",
@@ -40,19 +39,17 @@ export default {
     ],
     plugins: [
         PROD && del({ targets: "dist/*" }), //cleanup dist folder
-        typescript({ typescript: require("typescript") }),
         resolve(),
         postcss(),
         PROD && terser(),
         html({
-            title: "Hyperapp TodoMVC with Typescript",
+            title: "Hyperapp TodoMVC with JSDoc Types",
             publicPath: PUBLIC_PATH,
             template: htmlTemplate(PROD),
-            production: PROD,
         }),
         !PROD && liveServer({ root: "dist/" }),
     ],
     watch: {
-        include: ["src/**/*", "typings/**/*.d.ts"],
+        include: ["src/**/*"],
     },
 }

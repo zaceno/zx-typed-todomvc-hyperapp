@@ -1,263 +1,263 @@
 :root {
-    --color-dark-gray: rgb(42, 42, 42);
-    --color-darker-gray: rgb(19, 19, 19);
-    --color-gray: #888;
-    --color-black: #000;
-    --color-white: #fff;
-    --color-green: rgb(98, 177, 79);
-    --color-blue: cornflowerblue;
-    --color-yellow: rgb(194, 155, 65);
-    --color-red: rgb(134, 32, 7);
-    --background-0: var(--color-darker-gray);
-    --background-1: var(--color-black);
-    --background-2: var(--color-dark-gray);
+  --color-dark-gray: rgb(42, 42, 42);
+  --color-darker-gray: rgb(19, 19, 19);
+  --color-gray: #888;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-green: rgb(98, 177, 79);
+  --color-blue: cornflowerblue;
+  --color-yellow: rgb(194, 155, 65);
+  --color-red: rgb(134, 32, 7);
+  --background-0: var(--color-darker-gray);
+  --background-1: var(--color-black);
+  --background-2: var(--color-dark-gray);
 }
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,800;1,200;1,400;1,800&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: var(--background-0);
-    font-family: Nunito, sans-serif;
-    color: var(--color-white);
-    font-size: 22px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-0);
+  font-family: Nunito, sans-serif;
+  color: var(--color-white);
+  font-size: 22px;
 }
 
 body > main {
-    position: relative;
-    width: 600px;
-    height: 100%;
-    left: calc(50% - 300px);
+  position: relative;
+  width: 600px;
+  height: 100%;
+  left: calc(50% - 300px);
 }
 
 body > main > header h1 {
-    font-weight: 200;
-    font-size: 40px;
-    line-height: 120px;
-    text-align: center;
+  font-weight: 200;
+  font-size: 40px;
+  line-height: 120px;
+  text-align: center;
 }
 
 body > main > main {
-    position: absolute;
-    top: 120px;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    border-radius: 5px;
-    border: 1px var(--color-white) solid;
-    background-color: var(--background-1);
-    overflow: hidden;
+  position: absolute;
+  top: 120px;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  border: 1px var(--color-white) solid;
+  background-color: var(--background-1);
+  overflow: hidden;
 }
 
 body > main > main > footer {
-    position: absolute;
-    height: 70px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--background-2);
-    border-top: 1px dashed var(--color-white);
+  position: absolute;
+  height: 70px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-2);
+  border-top: 1px dashed var(--color-white);
 }
 
 input[type="text"] {
-    vertical-align: top;
-    font-size: 22px;
-    line-height: 37px;
-    padding: 0px 10px 1px 10px;
-    font-family: Nunito, sans-serif;
-    border: none;
-    background-color: var(--background-1);
-    border: 1px var(--background-1) solid;
-    color: #fff;
+  vertical-align: top;
+  font-size: 22px;
+  line-height: 37px;
+  padding: 0px 10px 1px 10px;
+  font-family: Nunito, sans-serif;
+  border: none;
+  background-color: var(--background-1);
+  border: 1px var(--background-1) solid;
+  color: #fff;
 }
 
 input[type="text"]:focus {
-    outline: none;
-    border-top-color: var(--color-white);
-    border-bottom-color: var(--color-white);
+  outline: none;
+  border-top-color: var(--color-white);
+  border-bottom-color: var(--color-white);
 }
 input[type="text"]::placeholder {
-    font-style: italic;
-    color: var(--color-gray);
+  font-style: italic;
+  color: var(--color-gray);
 }
 
 button,
 input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    color: var(--color-white);
-    background-color: var(--color-gray);
-    border: 1px var(--background-1) solid;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 28px;
-    cursor: pointer;
-    vertical-align: top;
-    line-height: 38px;
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: var(--color-white);
+  background-color: var(--color-gray);
+  border: 1px var(--background-1) solid;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 28px;
+  cursor: pointer;
+  vertical-align: top;
+  line-height: 38px;
 }
 
 button {
-    line-height: 40px;
+  line-height: 40px;
 }
 
 button:focus,
 input[type="checkbox"]:focus {
-    outline: none;
+  outline: none;
 }
 
 button:active {
-    border-top-width: 2px;
-    border-bottom-width: 0px;
-    height: 39px;
+  border-top-width: 2px;
+  border-bottom-width: 0px;
+  height: 39px;
 }
 
 input[type="checkbox"] {
-    text-indent: 1px;
-    background-color: var(--color-blue) !important;
+  text-indent: 1px;
+  background-color: var(--color-blue) !important;
 }
 input[type="checkbox"]::after {
-    content: "\2610";
+  content: "\2610";
 }
 input[type="checkbox"]:checked {
-    background-color: var(--color-gray) !important;
+  background-color: var(--color-gray) !important;
 }
 
 input[type="checkbox"]:checked::after {
-    content: "\2611";
+  content: "\2611";
 }
 
 .newitementry {
-    background-color: var(--background-2);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    padding: 20px;
+  background-color: var(--background-2);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 20px;
 }
 
 .newitementry input[type="text"] {
-    width: calc(100% - 102px);
+  width: calc(100% - 102px);
 }
 
 .newitementry input[type="text"] + button {
-    background-color: var(--color-green);
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+  background-color: var(--color-green);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .newitementry input[type="checkbox"] {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .itemlist {
-    position: absolute;
-    top: 80px;
-    bottom: 75px;
-    left: 0;
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  position: absolute;
+  top: 80px;
+  bottom: 75px;
+  left: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .itemlist ul {
-    list-style-type: none;
-    padding: 15px;
+  list-style-type: none;
+  padding: 15px;
 }
 
 .itemlist li {
-    background-color: var(--background-2);
-    margin-bottom: 6px;
-    padding: 5px;
-    height: 40px;
+  background-color: var(--background-2);
+  margin-bottom: 6px;
+  padding: 5px;
+  height: 40px;
 }
 
 .itemlist li span {
-    display: inline-block;
-    margin-left: 15px;
-    height: 40px;
-    line-height: 40px;
-    width: calc(100% - 95px);
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  display: inline-block;
+  margin-left: 15px;
+  height: 40px;
+  line-height: 40px;
+  width: calc(100% - 95px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .itemlist li span.done {
-    color: var(--color-gray);
-    text-decoration: line-through;
+  color: var(--color-gray);
+  text-decoration: line-through;
 }
 .itemlist li button:last-child {
-    background-color: var(--color-red);
-    color: var(--color-white);
-    visibility: hidden;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  visibility: hidden;
 }
 .itemlist li input[type="text"] {
-    margin-left: 44px;
-    width: calc(100% - 100px);
+  margin-left: 44px;
+  width: calc(100% - 100px);
 }
 
 .itemlist li:hover button:last-child,
 .itemlist li button:last-child:hover {
-    visibility: visible;
+  visibility: visible;
 }
 
 ul.filters {
-    list-style-type: none;
-    position: absolute;
-    left: calc(50% - 125px);
-    top: 12px;
+  list-style-type: none;
+  position: absolute;
+  left: calc(50% - 125px);
+  top: 12px;
 }
 ul.filters li {
-    display: inline;
+  display: inline;
 }
 ul.filters li + li {
-    margin-left: 6px;
+  margin-left: 6px;
 }
 ul.filters a {
-    display: inline-block;
-    height: 40px;
-    padding: 0px 12px;
-    line-height: 40px;
-    color: var(--color-white);
-    font-size: 18px;
-    text-decoration: none;
+  display: inline-block;
+  height: 40px;
+  padding: 0px 12px;
+  line-height: 40px;
+  color: var(--color-white);
+  font-size: 18px;
+  text-decoration: none;
 }
 
 ul.filters a.current {
-    border: 1px var(--background-1) solid !important;
-    background-color: var(--color-yellow);
-    border-radius: 5px;
-    padding: 0px 11px;
+  border: 1px var(--background-1) solid !important;
+  background-color: var(--color-yellow);
+  border-radius: 5px;
+  padding: 0px 11px;
 }
 
 ul.filters a:hover {
-    border: 1px var(--color-gray) solid;
-    border-radius: 5px;
-    padding: 0px 11px;
+  border: 1px var(--color-gray) solid;
+  border-radius: 5px;
+  padding: 0px 11px;
 }
 
 footer button {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-    font-size: 14px;
-    width: 140px;
-    background-color: var(--color-red);
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  font-size: 14px;
+  width: 140px;
+  background-color: var(--color-red);
 }
 
 footer p {
-    position: absolute;
-    left: 20px;
-    top: 15px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 14px;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
 }
